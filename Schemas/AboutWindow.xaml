@@ -22,7 +22,7 @@
 
             <!-- Title Bar -->
             <Grid Grid.Row="0" x:Name="TitleBar" Style="{DynamicResource ModalTitleBarStyle}">
-                <TextBlock Text="About Win11Debloat" 
+                <TextBlock Text="关于 Win11Debloat" 
                            Style="{DynamicResource ModalTitleTextStyle}"/>
             </Grid>
 
@@ -48,7 +48,7 @@
                     
                     <!-- Version -->
                         <TextBlock Grid.Row="0" Grid.Column="0"
-                            Text="Version:"
+                            Text="版本："
                             Style="{DynamicResource ModalInfoLabelTextStyle}"/>
                     <TextBlock x:Name="VersionText"
                             Grid.Row="0" Grid.Column="1"
@@ -57,7 +57,7 @@
                     
                     <!-- Author -->
                         <TextBlock Grid.Row="1" Grid.Column="0"
-                            Text="Author:"
+                            Text="作者："
                             Style="{DynamicResource ModalInfoLabelTextStyle}"/>
                     <TextBlock Grid.Row="1" Grid.Column="1"
                             Text="Raphire"
@@ -65,7 +65,7 @@
                     
                     <!-- Project Link -->
                         <TextBlock Grid.Row="2" Grid.Column="0"
-                            Text="Project:"
+                            Text="项目："
                             Style="{DynamicResource ModalInfoLabelTextStyle}"
                             Margin="0,0,16,0"/>
                     <TextBlock x:Name="ProjectLink"
@@ -126,7 +126,7 @@
             <Border Grid.Row="2" Style="{DynamicResource ModalFooterBorderStyle}">
                 <StackPanel x:Name="ButtonPanel" Style="{DynamicResource ModalFooterButtonsRightStyle}">
                     <Button x:Name="CloseButton" 
-                            Content="Close" 
+                            Content="关闭" 
                             Style="{DynamicResource ModalSecondaryActionButtonStyle}"/>
                 </StackPanel>
             </Border>

@@ -35,7 +35,7 @@
             <!-- Title Bar -->
             <Grid Grid.Row="0" x:Name="TitleBar" Height="40" Background="Transparent">
                 <TextBlock x:Name="TitleText" 
-                           Text="Message" 
+                           Text="消息" 
                            Foreground="{DynamicResource FgColor}"
                            FontSize="16"
                            FontWeight="SemiBold"
@@ -63,7 +63,7 @@
                 <!-- Message Text -->
                 <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" MaxHeight="300" Padding="0">
                     <TextBlock x:Name="MessageText"
-                               Text="Message content goes here"
+                               Text="消息内容"
                                TextWrapping="Wrap"
                                FontSize="14"
                                LineHeight="20"
@@ -84,11 +84,11 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
                     <Button x:Name="Button1" 
-                            Content="OK" 
+                            Content="确定" 
                             Height="32" MinWidth="80" Margin="4,0"
                             Style="{DynamicResource PrimaryButtonStyle}"/>
                     <Button x:Name="Button2" 
-                            Content="Cancel" 
+                            Content="取消" 
                             Height="32" MinWidth="80" Margin="4,0"
                             Style="{DynamicResource SecondaryButtonStyle}"
                             Visibility="Collapsed"/>

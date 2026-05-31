@@ -24,7 +24,7 @@ function Show-RestoreBackupWindow {
 
             Write-Host "User confirmed registry restore for $($backup.Target)."
             Restore-RegistryBackupState -Backup $backup
-            $successMessage = 'Registry backup restored successfully. Please restart your computer for all changes to take effect.'
+            $successMessage = '注册表备份还原成功。请重启计算机以使所有更改生效。'
         }
         elseif ($dialogResult.Result -eq 'RestoreStartMenu') {
             $scope = $dialogResult.StartMenuScope
@@ -54,7 +54,7 @@ function Show-RestoreBackupWindow {
 
             if ($successCount -eq 0) {
                 $errorSummary = ($resultEntries | ForEach-Object { $_.Message }) -join [Environment]::NewLine
-                throw "Failed to restore the Start Menu backup.`n$errorSummary"
+                throw "还原开始菜单备份失败。`n$errorSummary"
             }
 
             if ($failedEntries.Count -gt 0) {
@@ -63,26 +63,26 @@ function Show-RestoreBackupWindow {
             }
             else {
                 if ($scope -eq 'AllUsers') {
-                    $successMessage = "The Start Menu backup was successfully restored for all users. The changes will apply the next time users sign in."
+                    $successMessage = "开始菜单备份已成功为所有用户还原。更改将在用户下次登录时生效。"
                 }
                 else {
-                    $successMessage = "The Start Menu backup was successfully restored for the current user. The changes will apply the next time you sign in."
+                    $successMessage = "开始菜单备份已成功为当前用户还原。更改将在你下次登录时生效。"
                 }
             }
         }
 
         if ($warningMessage) {
             Write-Host "$warningMessage"
-            Show-MessageBox -Title 'Backup Restored' -Message $warningMessage -Icon Warning
+            Show-MessageBox -Title '备份已还原' -Message $warningMessage -Icon Warning
         }
         elseif ($successMessage) {
             Write-Host "$successMessage"
-            Show-MessageBox -Title 'Backup Restored' -Message $successMessage -Icon Success
+            Show-MessageBox -Title '备份已还原' -Message $successMessage -Icon Success
         }
     }
     catch {
-        $errorMessage = if ($_.Exception.Message) { $_.Exception.Message } else { 'An unexpected error occurred.' }
+        $errorMessage = if ($_.Exception.Message) { $_.Exception.Message } else { '发生意外错误。' }
         Write-Error "Restore operation failed: $errorMessage"
-        Show-MessageBox -Title 'Error' -Message "Restore failed: $errorMessage" -Icon Error
+        Show-MessageBox -Title '错误' -Message "Restore failed: $errorMessage" -Icon Error
     }
 }

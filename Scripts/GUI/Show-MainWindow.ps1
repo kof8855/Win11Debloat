@@ -240,7 +240,7 @@ function Show-MainWindow {
             Start-Process "explorer.exe" -ArgumentList $logsFolder
         }
         else {
-            Show-MessageBox -Message "No logs folder found at: $logsFolder" -Title "Logs" -Button 'OK' -Icon 'Information'
+            Show-MessageBox -Message "未找到日志文件夹：$logsFolder" -Title "日志" -Button 'OK' -Icon 'Information'
         }
     })
 
@@ -254,7 +254,7 @@ function Show-MainWindow {
         }
         catch {
             Write-Warning "Export configuration failed: $($_.Exception.Message)"
-            Show-MessageBox -Owner $window -Message "Unable to open export configuration dialog: $($_.Exception.Message)" -Title 'Export Configuration Failed' -Button 'OK' -Icon 'Error' | Out-Null
+            Show-MessageBox -Owner $window -Message "无法打开导出配置对话框: $($_.Exception.Message)" -Title '导出配置失败' -Button 'OK' -Icon 'Error' | Out-Null
         }
     })
 
@@ -265,13 +265,13 @@ function Show-MainWindow {
                 UpdateNavigationButtons
 
                 $window.Dispatcher.BeginInvoke([System.Windows.Threading.DispatcherPriority]::Loaded, [action]{
-                    Show-Bubble -TargetControl $reviewChangesBtn -Message 'View the selected changes here'
+                    Show-Bubble -TargetControl $reviewChangesBtn -Message '在此查看已选择的更改'
                 }) | Out-Null
             }
         }
         catch {
             Write-Warning "Import configuration failed: $($_.Exception.Message)"
-            Show-MessageBox -Owner $window -Message "Unable to open import configuration dialog: $($_.Exception.Message)" -Title 'Import Configuration Failed' -Button 'OK' -Icon 'Error' | Out-Null
+            Show-MessageBox -Owner $window -Message "无法打开导入配置对话框: $($_.Exception.Message)" -Title '导入配置失败' -Button 'OK' -Icon 'Error' | Out-Null
         }
     })
 
@@ -282,7 +282,7 @@ function Show-MainWindow {
             }
             catch {
                 Write-Warning "Restore backup action failed: $($_.Exception.Message)"
-                Show-MessageBox -Owner $window -Message "Unable to open restore backup dialog: $($_.Exception.Message)" -Title 'Restore Backup Failed' -Button 'OK' -Icon 'Error' | Out-Null
+                Show-MessageBox -Owner $window -Message "无法打开还原备份对话框: $($_.Exception.Message)" -Title '还原备份失败' -Button 'OK' -Icon 'Error' | Out-Null
             }
         })
     }
@@ -555,7 +555,7 @@ function Show-MainWindow {
             }
             else {
                 $appRemovalScopeCombo.IsEnabled = $false
-                $appRemovalScopeDescription.Text = "No apps selected for removal."
+                $appRemovalScopeDescription.Text = "未选择要移除的应用。"
             }
         }
     }
